@@ -33,7 +33,10 @@ class AppPanelProvider extends PanelProvider
       ->path('app')
       ->login()
       ->colors([
-        'primary' => Color::Blue,
+        'primary' => Color::Red,
+        'kit' => Color::Lime,
+        'plan' => Color::Blue,
+        'repo' => Color::Cyan,
       ])
       ->font('Sora')
       ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

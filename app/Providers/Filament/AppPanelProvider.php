@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\CheckUserStatus;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,7 +33,7 @@ class AppPanelProvider extends PanelProvider
       ->path('app')
       ->login()
       ->colors([
-        'primary' => Color::Pink,
+        'primary' => Color::Blue,
       ])
       ->font('Sora')
       ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
@@ -70,6 +71,7 @@ class AppPanelProvider extends PanelProvider
         SubstituteBindings::class,
         DisableBladeIconComponents::class,
         DispatchServingFilamentEvent::class,
+        CheckUserStatus::class,
       ])
       ->authMiddleware([
         Authenticate::class,

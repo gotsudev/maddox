@@ -23,6 +23,7 @@ return new class extends Migration
       $table->string('iccid')->nullable();
       $table->decimal('price', 10, 2);
       $table->string('status')->default('Pendiente');
+      $table->string('subdistributor');
       $table->text('notes')->nullable();
       $table->timestamps();
     });

@@ -13,6 +13,7 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Enums\ActionsPosition;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Validation\ValidationException;
 
@@ -84,10 +85,19 @@ class CommissionTableBuilder
           ->default('-')
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
+        Tables\Columns\TextColumn::make('subdistributor')
+          ->label('Subdistribuidor')
+          ->sortable()
+          ->searchable(),
         Tables\Columns\TextColumn::make('notes')
           ->label('Notas')
           ->sortable()
           ->default('-')
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: true),
+        Tables\Columns\TextColumn::make('user.name')
+          ->label('Usuario')
+          ->sortable()
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('created_at')
@@ -102,15 +112,33 @@ class CommissionTableBuilder
           ->toggleable(isToggledHiddenByDefault: true),
       ])
       ->recordUrl(null)
-      ->defaultSort('created_at', 'desc')
+      ->defaultSort('date', 'desc')
       ->filters([
-        //
+        SelectFilter::make('status')
+          ->label('Estado')
+          ->options([
+            'Pendiente' => 'Pendiente',
+            'Pagada' => 'Pagada',
+          ])
+          ->native(false)
+          ->preload()
+          ->placeholder('Selecciona un estado'),
+        SelectFilter::make('type')
+          ->label('Tipo')
+          ->options([
+            'Plan' => 'Plan',
+            'Repocisión' => 'Repocisión',
+            'Kit financiado' => 'Kit financiado',
+          ])
+          ->native(false)
+          ->preload()
+          ->placeholder('Selecciona un tipo'),
       ])
       ->actions([
         ActionGroup::make([
           Tables\Actions\ViewAction::make()
             ->label('Ver')
-            ->color('primary')
+            ->color('info')
             ->modalHeading('Detalles de la comisión')
             ->slideOver(),
           Action::make('pagar')

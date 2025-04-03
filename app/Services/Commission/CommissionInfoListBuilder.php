@@ -71,6 +71,9 @@ class CommissionInfoListBuilder
               ->label('ICCID')
               ->default('-')
               ->icon('heroicon-o-hashtag'),
+            TextEntry::make('subdistributor')
+              ->label('Subdistribuidor')
+              ->icon('heroicon-o-user'),
             TextEntry::make('user.name')
               ->label('Usuario')
               ->icon('heroicon-o-user'),

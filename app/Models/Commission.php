@@ -23,6 +23,7 @@ class Commission extends Model
     'iccid',
     'price',
     'status',
+    'subdistributor',
     'notes',
   ];
 
@@ -34,6 +35,11 @@ class Commission extends Model
   public function setNotesAttribute($value)
   {
     $this->attributes['notes'] = strtoupper($value);
+  }
+
+  public function setSubdistributorAttribute($value)
+  {
+    $this->attributes['subdistributor'] = strtoupper($value);
   }
 
   /**

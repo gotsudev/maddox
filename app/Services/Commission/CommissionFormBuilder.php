@@ -62,6 +62,7 @@ class CommissionFormBuilder
         static::getICCIDFormField(),
         static::getDateFormField(),
         static::getPriceFormField(),
+        static::getSubdistributorFormField(),
         static::getNoteFormField(),
       ]);
   }
@@ -251,6 +252,28 @@ class CommissionFormBuilder
         'required' => 'El precio es obligatorio',
         'numeric' => 'El precio debe ser un número',
         'min_value' => 'El precio no puede ser $ 0 ',
+      ]);
+  }
+
+
+  /**
+   * Return subdistributor form field.
+   * 
+   * @return TextInput
+   */
+  public static function getSubdistributorFormField(): TextInput
+  {
+    return TextInput::make('subdistributor')
+      ->label('Subdistribuidor')
+      ->required()
+      ->string()
+      ->minLength(4)
+      ->maxLength(100)
+      ->autocomplete(false)
+      ->validationMessages([
+        'required' => 'El subdistribuidor es obligatorio',
+        'min_length' => 'El subdistribuidor debe tener al menos 4 caracteres',
+        'max_length' => 'El subdistribuidor no debe exceder los 100 caracteres',
       ]);
   }
 

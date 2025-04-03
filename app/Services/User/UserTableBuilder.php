@@ -96,7 +96,7 @@ class UserTableBuilder
         ActionGroup::make([
           Tables\Actions\ViewAction::make()
             ->label('Ver')
-            ->color('primary')
+            ->color('info')
             ->modalHeading('Detalles del usuario')
             ->slideOver(),
           Tables\Actions\EditAction::make()->color('warning'),
@@ -147,7 +147,7 @@ class UserTableBuilder
             }),
           Action::make('Cambiar contraseña')
             ->label('Actualizar')
-            ->color('primary')
+            ->color('info')
             ->icon('heroicon-o-finger-print')
             ->modalHeading('Actualizar contraseña')
             ->modalWidth(MaxWidth::Medium)
@@ -172,7 +172,7 @@ class UserTableBuilder
                     ->actions([
                       NotificationAction::make('Ir a mi perfil')
                         ->button()
-                        ->url(route('filament.pos.pages.perfil')),
+                        ->url(route('filament.app.pages.perfil')),
                     ])
                     ->send();
                   return;

@@ -78,7 +78,7 @@ class CustomerTableBuilder
         ActionGroup::make([
           Tables\Actions\ViewAction::make()
             ->label('Ver')
-            ->color('primary')
+            ->color('info')
             ->modalHeading('Detalles del cliente')
             ->slideOver(),
           Tables\Actions\EditAction::make()->color('warning'),

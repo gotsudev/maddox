@@ -160,21 +160,11 @@ class CustomerFormBuilder
       ->maxLength(50)
       ->default('notiene@maddox.com')
       ->autocomplete(false)
-      ->unique(ignoreRecord: true)
       ->reactive()
-      ->afterStateUpdated(function ($state) {
-        if (Customer::where('email', $state)->exists()) {
-          Notification::make()
-            ->title('Correo en uso')
-            ->warning()
-            ->send();
-        }
-      })
       ->validationMessages([
         'required' => 'El correo electrónico es obligatorio',
         'email' => 'El correo electrónico no es válido',
         'max_length' => 'El correo electrónico no debe exceder los 50 caracteres',
-        'unique' => 'El correo electrónico ya está en uso',
       ]);
   }
 

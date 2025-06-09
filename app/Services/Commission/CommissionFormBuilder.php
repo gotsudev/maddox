@@ -63,6 +63,7 @@ class CommissionFormBuilder
         static::getDateFormField(),
         static::getPriceFormField(),
         static::getSubdistributorFormField(),
+        static::getReferenceFormField(),
         static::getNoteFormField(),
       ]);
   }
@@ -274,6 +275,27 @@ class CommissionFormBuilder
         'required' => 'El subdistribuidor es obligatorio',
         'min_length' => 'El subdistribuidor debe tener al menos 4 caracteres',
         'max_length' => 'El subdistribuidor no debe exceder los 100 caracteres',
+      ]);
+  }
+
+  /**
+   * Return reference form field.
+   * 
+   * @return TextInput
+   */
+  public static function getReferenceFormField(): TextInput
+  {
+    return TextInput::make('reference')
+      ->label('Referencia de pago')
+      ->numeric()
+      ->minLength(5)
+      ->autocomplete(false)
+      // ->required(fn($get) => $get('type') === 'Kit financiado' || $get('type') === 'Repocisión')
+      // ->visible(fn($get) => $get('type') === 'Kit financiado' || $get('type') === 'Repocisión')
+      ->validationMessages([
+        'required' => 'La referencia de pago es obligatoria',
+        'min_length' => 'La referencia de pago debe tener al menos 5 caracteres',
+        'numeric' => 'La referencia de pago debe ser numérica',
       ]);
   }
 

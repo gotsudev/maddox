@@ -24,6 +24,7 @@ class Commission extends Model
     'price',
     'status',
     'subdistributor',
+    'reference',
     'notes',
   ];
 
@@ -40,6 +41,11 @@ class Commission extends Model
   public function setSubdistributorAttribute($value)
   {
     $this->attributes['subdistributor'] = strtoupper($value);
+  }
+
+  public function getPriceAttribute($value)
+  {
+    return (int) $value;
   }
 
   /**

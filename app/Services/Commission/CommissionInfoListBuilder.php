@@ -74,6 +74,10 @@ class CommissionInfoListBuilder
             TextEntry::make('subdistributor')
               ->label('Subdistribuidor')
               ->icon('heroicon-o-user'),
+            TextEntry::make('reference')
+              ->label('Referencia de pago')
+              ->default('-')
+              ->icon('heroicon-o-document-text'),
             TextEntry::make('user.name')
               ->label('Usuario')
               ->icon('heroicon-o-user'),

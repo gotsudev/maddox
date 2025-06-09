@@ -89,6 +89,12 @@ class CommissionTableBuilder
           ->label('Subdistribuidor')
           ->sortable()
           ->searchable(),
+        Tables\Columns\TextColumn::make('reference')
+          ->label('Referencia')
+          ->default('-')
+          ->sortable()
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: false),
         Tables\Columns\TextColumn::make('notes')
           ->label('Notas')
           ->sortable()
@@ -141,6 +147,9 @@ class CommissionTableBuilder
             ->color('info')
             ->modalHeading('Detalles de la comisión')
             ->slideOver(),
+          Tables\Actions\EditAction::make()->color('warning')
+            ->slideOver()
+            ->visible(fn($record) => $record->status !== 'Pagada'),
           Action::make('pagar')
             ->label('Pagar')
             ->color('success')

@@ -34,10 +34,28 @@ class CommissionTableBuilder
           ->searchable()
           ->sortable()
           ->toggleable(isToggledHiddenByDefault: true),
+        Tables\Columns\TextColumn::make('customer.document_type')
+          ->label('Tipo')
+          ->sortable()
+          ->searchable(),
+        Tables\Columns\TextColumn::make('customer.document_number')
+          ->label('Documento')
+          ->sortable()
+          ->searchable(),
         Tables\Columns\TextColumn::make('customer.name')
           ->label('Cliente')
           ->sortable()
           ->searchable(),
+        Tables\Columns\TextColumn::make('cellphone')
+          ->label('Celular')
+          ->sortable()
+          ->searchable(),
+        Tables\Columns\TextColumn::make('street')
+          ->label('Dirección')
+          ->default('-')
+          ->sortable()
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('status')
           ->label('Estado')
           ->badge()
@@ -49,10 +67,6 @@ class CommissionTableBuilder
           ->searchable(),
         Tables\Columns\TextColumn::make('type')
           ->label('Tipo')
-          ->sortable()
-          ->searchable(),
-        Tables\Columns\TextColumn::make('cellphone')
-          ->label('Celular')
           ->sortable()
           ->searchable(),
         Tables\Columns\TextColumn::make('date')

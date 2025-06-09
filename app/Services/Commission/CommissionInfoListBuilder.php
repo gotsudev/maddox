@@ -25,11 +25,24 @@ class CommissionInfoListBuilder
             'lg' => 3,
           ])
           ->schema([
+            TextEntry::make('customer.document_type')
+              ->label('Tipo de documento')
+              ->icon('heroicon-o-user'),
+            TextEntry::make('customer.document_number')
+              ->label('Número de documento')
+              ->icon('heroicon-o-user'),
             TextEntry::make('customer.name')
               ->label('Cliente')
               ->icon('heroicon-o-user'),
+            TextEntry::make('cellphone')
+              ->label('Celular')
+              ->default('-')
+              ->icon('heroicon-o-device-phone-mobile'),
+            TextEntry::make('customer.street')
+              ->label('Dirección')
+              ->icon('heroicon-o-user'),
             TextEntry::make('status')
-              ->label('Estado')
+              ->label('Estado comisión')
               ->badge()
               ->color(fn(string $state): string => match ($state) {
                 'Pagada' => 'success',
@@ -45,10 +58,6 @@ class CommissionInfoListBuilder
                 'Kit financiado' => 'kit',
                 default => 'gray',
               }),
-            TextEntry::make('cellphone')
-              ->label('Celular')
-              ->default('-')
-              ->icon('heroicon-o-device-phone-mobile'),
             TextEntry::make('date')
               ->label('Fecha')
               ->date()

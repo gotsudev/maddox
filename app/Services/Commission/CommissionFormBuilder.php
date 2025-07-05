@@ -81,6 +81,8 @@ class CommissionFormBuilder
         'Plan' => 'Plan',
         'Repocisión' => 'Repocisión',
         'Kit financiado' => 'Kit financiado',
+        'Portabilidad' => 'Portabilidad',
+        'Migración' => 'Migración',
       ])
       ->placeholder('Selecciona un tipo de comisión')
       ->native(false)

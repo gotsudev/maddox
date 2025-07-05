@@ -27,10 +27,10 @@ class CommissionInfoListBuilder
           ->schema([
             TextEntry::make('customer.document_type')
               ->label('Tipo de documento')
-              ->icon('heroicon-o-user'),
+              ->icon('heroicon-o-identification'),
             TextEntry::make('customer.document_number')
               ->label('Número de documento')
-              ->icon('heroicon-o-user'),
+              ->icon('heroicon-o-hashtag'),
             TextEntry::make('customer.name')
               ->label('Cliente')
               ->icon('heroicon-o-user'),
@@ -40,7 +40,7 @@ class CommissionInfoListBuilder
               ->icon('heroicon-o-device-phone-mobile'),
             TextEntry::make('customer.street')
               ->label('Dirección')
-              ->icon('heroicon-o-user'),
+              ->icon('heroicon-o-home'),
             TextEntry::make('status')
               ->label('Estado comisión')
               ->badge()
@@ -56,6 +56,8 @@ class CommissionInfoListBuilder
                 'Plan' => 'plan',
                 'Repocisión' => 'repo',
                 'Kit financiado' => 'kit',
+                'Portabilidad' => 'porta',
+                'Migración' => 'migra',
                 default => 'gray',
               }),
             TextEntry::make('date')

@@ -149,6 +149,8 @@ class CommissionTableBuilder
             'Plan' => 'Plan',
             'Repocisión' => 'Repocisión',
             'Kit financiado' => 'Kit financiado',
+            'Portabilidad' => 'Portabilidad',
+            'Migración' => 'Migración',
           ])
           ->native(false)
           ->preload()
